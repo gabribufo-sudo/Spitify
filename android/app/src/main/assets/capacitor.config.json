@@ -1,0 +1,13 @@
+{
+	"appId": "app.ritmostudio.lastwave",
+	"appName": "RitmoStudio",
+	"webDir": "dist",
+	"server": {
+		"androidScheme": "https",
+		"cleartext": false
+	},
+	"android": {
+		"allowMixedContent": false,
+		"backgroundColor": "#0E100C"
+	}
+}

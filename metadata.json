@@ -1,0 +1,8 @@
+{
+  "name": "RitmoStudio",
+  "description": "App musicale con catalogo sempre aggiornato sulle nuove uscite di canzoni e album, metronomo sincronizzato al BPM dei brani, studio copertine AI e assistente musicale.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

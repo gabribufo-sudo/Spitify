@@ -1,0 +1,134 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --lw-paper: #f4f4f0;
+  --lw-surface: #fbfbf8;
+  --lw-surface-muted: #ecece6;
+  --lw-ink: #20251e;
+  --lw-muted: #5b5e57;
+  --lw-line: #d6d6cf;
+  --lw-lime: #c6f100;
+  --lw-accent: #536716;
+  --lw-on-lime: #20251e;
+  --lw-glass: rgba(251, 251, 248, 0.78);
+  --lw-glass-edge: rgba(255, 255, 255, 0.85);
+  --lw-glass-shade: rgba(60, 72, 45, 0.16);
+  --ritmo-accent: #c6f100;
+  --ritmo-secondary: #536716;
+  --ritmo-glow: #c6f100;
+  --ritmo-glass-blur: 18px;
+}
+
+html.dark {
+  --lw-paper: #0e100c;
+  --lw-surface: #161912;
+  --lw-surface-muted: #1c2018;
+  --lw-ink: #eef1e6;
+  --lw-muted: #b8bfae;
+  --lw-line: #2c3027;
+  --lw-lime: #c6f100;
+  --lw-accent: #c6f100;
+  --lw-on-lime: #20251e;
+  --lw-glass: rgba(26, 29, 22, 0.74);
+  --lw-glass-edge: rgba(201, 228, 166, 0.22);
+  --lw-glass-shade: rgba(0, 0, 0, 0.45);
+}
+
+html.amoled {
+  --lw-paper: #000000;
+  --lw-surface: #0a0b09;
+  --lw-surface-muted: #121410;
+  --lw-line: #22261e;
+  --lw-glass: rgba(10, 12, 9, 0.86);
+}
+
+@theme {
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--lw-paper);
+    color: var(--lw-ink);
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: var(--lw-lime);
+    color: var(--lw-on-lime);
+  }
+}
+
+/* LastWave Floating Liquid Glass Header Pill */
+.lw-liquid-bar {
+  background: radial-gradient(ellipse at 22% 0%, var(--lw-glass-edge), transparent 65%), var(--lw-glass);
+  border: 1px solid var(--lw-glass-edge);
+  -webkit-backdrop-filter: blur(var(--ritmo-glass-blur)) saturate(180%);
+  backdrop-filter: blur(var(--ritmo-glass-blur)) saturate(180%);
+  box-shadow:
+    0 10px 30px -12px var(--lw-glass-shade),
+    0 2px 6px rgba(30, 40, 20, 0.045),
+    inset 0 1px 0 var(--lw-glass-edge),
+    inset 0 -1px 0 rgba(80, 95, 60, 0.12);
+}
+
+.lw-glass-card {
+  background: var(--lw-glass);
+  border: 1px solid var(--lw-line);
+  -webkit-backdrop-filter: blur(var(--ritmo-glass-blur)) saturate(160%);
+  backdrop-filter: blur(var(--ritmo-glass-blur)) saturate(160%);
+  box-shadow: 0 14px 32px rgba(32, 32, 32, 0.06), inset 0 1px 0 var(--lw-glass-edge);
+}
+
+html.dark .lw-glass-card {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28), inset 0 1px 0 var(--lw-glass-edge);
+}
+
+/* LastWave Signature Dark Sound Hardware Card */
+.lw-sound-visual {
+  background: linear-gradient(145deg, rgba(199, 229, 159, 0.06), rgba(198, 241, 0, 0.02)), #161912;
+  border: 1px solid #2c3027;
+  color: #eef1e6;
+}
+
+.lw-em-lime {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+
+.lw-em-lime::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: -4px;
+  bottom: 2px;
+  height: 7px;
+  background: #c6f100;
+  z-index: -1;
+  transform: rotate(-1.5deg);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
